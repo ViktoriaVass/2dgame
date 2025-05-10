@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://l3ntpdpfan8q"]
+
+[ext_resource type="Script" uid="uid://dx8tqlcxr3ald" path="res://win.gd" id="1_wao2c"]
+
+[node name="Win" type="Node2D"]
+script = ExtResource("1_wao2c")
+
+[node name="MenuLabel" type="Label" parent="."]
+offset_top = 104.0
+offset_right = 1155.0
+offset_bottom = 146.0
+theme_type_variation = &"HeaderLarge"
+text = "You won the game !"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 298.0
+offset_right = 670.0
+offset_bottom = 329.0
+text = "Play again"

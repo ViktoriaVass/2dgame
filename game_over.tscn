@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr1qpiqs16sml"]
+
+[ext_resource type="Script" uid="uid://3qyvw8hodbq8" path="res://game_over.gd" id="1_y26ei"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_y26ei")
+
+[node name="MenuLabel" type="Label" parent="."]
+offset_top = 104.0
+offset_right = 1155.0
+offset_bottom = 146.0
+theme_type_variation = &"HeaderLarge"
+text = "Game over!"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 482.0
+offset_top = 298.0
+offset_right = 670.0
+offset_bottom = 329.0
+text = "Try again"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

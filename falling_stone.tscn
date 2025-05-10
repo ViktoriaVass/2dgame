@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://shwdey3ftv6c"]
+
+[ext_resource type="Script" uid="uid://ck71kwtod3yi2" path="res://falling_stone.gd" id="1_41deq"]
+[ext_resource type="Texture2D" uid="uid://bdxienr06s7gp" path="res://monochrome_tilemap_transparent_packed.png" id="1_fgauh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0s5r2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dov7"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s5r2"]
+atlas = ExtResource("1_fgauh")
+region = Rect2(256, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7j8ne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s5r2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FallingStone" type="RigidBody2D"]
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_0s5r2")
+sleeping = true
+script = ExtResource("1_41deq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1.90735e-06, 266.5)
+scale = Vector2(1.2, 28.05)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_7dov7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_7j8ne")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
