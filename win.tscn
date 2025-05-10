@@ -19,3 +19,5 @@ offset_top = 298.0
 offset_right = 670.0
 offset_bottom = 329.0
 text = "Play again"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
